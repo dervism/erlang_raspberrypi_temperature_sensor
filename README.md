@@ -10,6 +10,6 @@ Build
 
 To start the release in the foreground:
 
-    ./_rel/webserver/bin/webserver console
+    $ ./_rel/webserver/bin/webserver console
     
 Then point your browser at http://localhost:8080/sensors/temp
