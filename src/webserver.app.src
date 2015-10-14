@@ -1,0 +1,19 @@
+{application, 'webserver',
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, [webserver_sup]},
+  {mod, {'webserver_app', []}},
+  {applications,
+   [kernel,
+    stdlib,
+    cowboy,
+    erlydtl,
+    eunit_formatters
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {contributors, []},
+  {licenses, []},
+  {links, []}
+ ]}.
