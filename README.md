@@ -1,9 +1,15 @@
-webserver
+Raspberry Pi Erlang Webserver
 =====
 
-An OTP application
+Embedded Erlang webserver for reading values from a digital temperature sensor.
 
 Build
 -----
 
-    $ rebar3 compile
+    $ make
+
+To start the release in the foreground:
+
+    ./_rel/webserver/bin/webserver console
+    
+Then point your browser at http://localhost:8080/sensors/temp
