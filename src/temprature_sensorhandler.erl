@@ -45,4 +45,4 @@ read_temperature() ->
 
 
 read_file() ->
-  file_read:read(<<"/Users/dervism/Documents/erlang/projects/raspberrypi/webserver/testdata">>).
+  file_read:read(<<"/sys/bus/w1/devices/28-000475762fff/w1_slave">>).
