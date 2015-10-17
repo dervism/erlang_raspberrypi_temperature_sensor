@@ -40,9 +40,9 @@ read_temperature() ->
   DS18B20_SensorOutput = read_file(),
   Line = lists:last(DS18B20_SensorOutput),
   Value = lists:last(re:split(Line, "t=", [{return,list},trim])),
-  Temperatur = string:to_integer(Value),
-  {ok, Temperatur}.
+  {Temperatur, _Rest} = string:to_integer(Value),
+  Temperatur.
 
 
 read_file() ->
-  file_read:readfile(<<"/sys/bus/w1/devices/28-000475762fff/w1_slave">>).
+  file_read:read(<<"/Users/dervism/Documents/erlang/projects/raspberrypi/webserver/testdata">>).
