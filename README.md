@@ -6,6 +6,8 @@ Embedded Erlang webserver for reading values from a digital temperature sensor.
 Build
 -----
 
+    $ make distclean
+    
     $ make
 
 To start the release in the foreground:
