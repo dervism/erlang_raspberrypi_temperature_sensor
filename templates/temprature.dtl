@@ -4,6 +4,6 @@
 	<title>Temperature</title>
 </head>
 <body>
-	<p>Temperature: Get{{t}} (C)</p>
+	<p>Temperature: {{t}} (C)</p>
 </body>
 </html>
