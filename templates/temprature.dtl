@@ -4,6 +4,6 @@
 	<title>Temperature</title>
 </head>
 <body>
-	<p>Temperature: GetGgefsdfs{{t}} (C)</p>
+	<p>Temperature: Get{{t}} (C)</p>
 </body>
 </html>
