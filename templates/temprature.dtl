@@ -1,9 +1,9 @@
 <html>
 <head>
 	<meta charset=\"utf-8\">
-	<title>Temprature</title>
+	<title>Temperature</title>
 </head>
 <body>
-	<p>{{t}}</p>
+	<p>Temperature: GetGgefsdfs{{t}} (C)</p>
 </body>
 </html>

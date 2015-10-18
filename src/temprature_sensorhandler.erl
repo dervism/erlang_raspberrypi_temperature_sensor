@@ -41,7 +41,7 @@ read_temperature() ->
   Line = lists:last(DS18B20_SensorOutput),
   Value = lists:last(re:split(Line, "t=", [{return,list},trim])),
   {Temperatur, _Rest} = string:to_integer(Value),
-  Temperatur.
+  Temperatur/1000.
 
 
 read_file() ->
