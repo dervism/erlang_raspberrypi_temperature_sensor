@@ -18,8 +18,8 @@
 start(_StartType, _StartArgs) ->
     Dispatch = cowboy_router:compile([
       {'_', [
-        {"/", toppage_handler, []}
-       %% {"/sensors/temp", temprature_sensorhandler, []}
+        {"/", toppage_handler, []},
+        {"/sensors/light", lightlevel_handler, []}
       ]}
     ]),
     {ok, _} = cowboy:start_http(http, 100, [{port, 8080}], [

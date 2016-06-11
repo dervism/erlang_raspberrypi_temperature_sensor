@@ -1,5 +1,5 @@
 {application, 'webserver',
- [{description, "An OTP application"},
+ [{description, "Raspberry PI Erlang ALE Sensor IoT"},
   {vsn, "0.1.0"},
   {registered, [webserver_sup]},
   {mod, {'webserver_app', []}},
@@ -7,7 +7,11 @@
    [kernel,
     stdlib,
     cowboy,
-    erlydtl
+    erlang_ale,
+    erlydtl,
+    jsx,
+    inets,
+    ssl
    ]},
   {env,[]},
   {modules, []},

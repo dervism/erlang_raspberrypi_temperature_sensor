@@ -4,6 +4,6 @@
 	<title>Temperature</title>
 </head>
 <body>
-	<p>Temperature: {{t}} (C)</p>
+	<p>Light Level: {{t}} (C)</p>
 </body>
 </html>
