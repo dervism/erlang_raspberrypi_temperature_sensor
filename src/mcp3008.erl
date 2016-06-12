@@ -14,5 +14,6 @@ readSPI(Channel) ->
         <<_:6, Counts:10>> = spi:transfer(Spi, <<Command, 16#00>>),
         SensorValue = Counts bsl 1,
 	Response = rest:postAio(integer_to_list(SensorValue), "lightsensor_feed/data"),
-	{Response, SensorValue}.
+	{prettyPrint(Response), SensorValue}.
 
+prettyPrint(JSON) -> io:format(binary_to_list(jsx:prettify(list_to_binary(JSON)))).
