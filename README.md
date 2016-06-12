@@ -2,8 +2,17 @@ Raspberry Pi Erlang IoT Webserver
 =====
 
 Erlang application with an embedded [Cowboy webserver](https://github.com/ninenines/cowboy) for reading values from sensors and publishing to a Adafruit.io IoT-Dashboard. The program uses [Erlang ALE module](https://github.com/esl/erlang_ale) to read an analog sensor through the SPI-interface and a C driver program to read the DHT11-sensor. Being more low level, the C program reads more accurate values and outputs them as JSON. Erlang executes the C program and extracts the values using the [JSX library](https://github.com/talentdeficit/jsx#encode12). 
-- [Prerequisites - Software](#preqs)
 
+- [Prerequisites - Hardware](#pregh)
+- [Prerequisites - Software](#preqs)
+- [Wiring the Raspberry and the sensors](#wiring)
+- [Building](#building)
+- [Starting the server](#starting)
+- [Automatic timer to continuously publish sensor values to Adafruit.io](#timer)
+- [Testing the sensors from the Erlang Shell](#testing)
+- [Accessing the sensors throught the embedded webserver](#webserver)
+
+<a id="preqh">
 Prerequisites - Hardware
 ----
 
@@ -28,6 +37,7 @@ To read values from sensors with Erlang, this project uses the [Erlang ALE modul
 
 The software tries to publish values to [Adafruit IoT Dashboard](https://io.adafruit.com), so you will need an account and a dashboard. You can read Jeremy Morgans great blog post [here](https://www.jeremymorgan.com/internet-of-things/how-to-adafruit-io/) on how to do that.
 
+<a id="wiring">
 Wiring the Raspberry and the sensors
 ----
 
@@ -37,6 +47,7 @@ Wiring the Raspberry and the sensors
 3. Connect the DHT11 to GPIO #4
 4. Git clone this repo and then build the code as described below.
 
+<a id="building">
 Build
 -----
 
@@ -44,6 +55,7 @@ Build
 
     $ make
 
+<a id="starting">
 Starting the server
 ----
 
@@ -56,6 +68,7 @@ or
 
     $ ./_rel/webserver/bin/webserver console
 
+<a id="timer">
 Automatic timer to continuously publish sensor values to Adafruit.io
 ----
 
@@ -67,6 +80,7 @@ In this example, Erlang will read and publish new values every 5 seconds. To sto
 
     (webserver@127.0.0.1)2> iottimer:stop().
 
+<a id="testing">
 Testing the sensors from the Erlang Shell
 ----
 
@@ -131,6 +145,7 @@ Try running "dht11:read()." to read and publish humidity and temperature values:
       "created_epoch": 1465732271.93519
     }
 
+<a id="webserver">
 Accessing the sensors throught the embedded webserver
 ----
-The embedded webserver's endpoints are coded in the file webserver_app.erl. Point your browser at http://localhost:8080/sensors/light to see output from the sensor (that is, if your Raspberry actually has a sensor connected).
+The embedded Cowboy webserver's endpoints are coded in the file webserver_app.erl. Point your browser at http://localhost:8080/sensors/light to see output from the sensor (that is, if your Raspberry actually has a sensor connected).
