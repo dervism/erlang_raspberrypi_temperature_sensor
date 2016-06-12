@@ -67,14 +67,54 @@ After you have startet the server with one of the terminal commands above, you w
 Try running "mcp3008:readSPI(0)." to read a value from the light-level sensor:
 
     (webserver@127.0.0.1)1> mcp3008:readSPI(0).
-    {"{\n  \"id\":644511257,\n  \"value\":\"86\",\n  \"position\":null,\n  \"lat\":null,\n  \"lon\":null,\n  \"ele\":null,\n  \"feed_id\":592856,\n  \"group_id\":null,\n  \"expiration\":null,\n  \"completed_at\":null,\n  \"created_at\":\"2016-06-11T14:45:40.087Z\",\n  \"updated_at\":\"2016-06-11T14:45:40.087Z\",\n  \"created_epoch\":1465656340.08785\n}\n",
-     86}
+    {
+      "id": 649281259,
+      "value": "116",
+      "position": null,
+      "lat": null,
+      "lon": null,
+      "ele": null,
+      "feed_id": 592856,
+      "group_id": null,
+      "expiration": null,
+      "completed_at": null,
+      "created_at": "2016-06-12T11:57:21.688Z",
+      "updated_at": "2016-06-12T11:57:21.688Z",
+      "created_epoch": 1465732641.68893
+    }
 
 Try running "dht11:read()." to read and publish humidity and temperature values:
 
     (webserver@127.0.0.1)2> dht11:read().      
-    {<<"{\n  \"id\": 644901856,\n  \"value\": \"32.0\",\n  \"position\": null,\n  \"lat\": null,\n  \"lon\": null,\n  \"ele\": null,\n  \"feed"...>>, 
-    <<"{\n  \"id\": 644901869,\n  \"value\": \"25.0\",\n  \"position\": null,\n  \"lat\": null,\n  \"lon\": null,\n  \"ele\": null,\n  \""...>>}
+    {
+      "id": 649260154,
+      "value": "32.0",
+      "position": null,
+      "lat": null,
+      "lon": null,
+      "ele": null,
+      "feed_id": 592854,
+      "group_id": null,
+      "expiration": null,
+      "completed_at": null,
+      "created_at": "2016-06-12T11:51:11.719Z",
+      "updated_at": "2016-06-12T11:51:11.719Z",
+      "created_epoch": 1465732271.71952
+    }{
+      "id": 649260167,
+      "value": "26.0",
+      "position": null,
+      "lat": null,
+      "lon": null,
+      "ele": null,
+      "feed_id": 592855,
+      "group_id": null,
+      "expiration": null,
+      "completed_at": null,
+      "created_at": "2016-06-12T11:51:11.935Z",
+      "updated_at": "2016-06-12T11:51:11.935Z",
+      "created_epoch": 1465732271.93519
+    }
 
 Accessing the sensors throught the embedded webserver
 ----
