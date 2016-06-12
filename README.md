@@ -1,7 +1,8 @@
 Raspberry Pi Erlang IoT Webserver
 =====
 
-Embedded Erlang webserver for reading values from analog and digital sensors and publishing to a Adafruit.io IoT-Dashboard.
+Erlang application with an embedded [Cowboy webserver](https://github.com/ninenines/cowboy) for reading values from sensors and publishing to a Adafruit.io IoT-Dashboard. The program uses [Erlang ALE module](https://github.com/esl/erlang_ale) to read an analog sensor through the SPI-interface and a C driver program to read the DHT11-sensor. Being more low level, the C program reads more accurate values and outputs them as JSON. Erlang executes the C program and extracts the values using the [JSX library](https://github.com/talentdeficit/jsx#encode12). 
+- [Prerequisites - Software](#preqs)
 
 Prerequisites - Hardware
 ----
@@ -11,10 +12,11 @@ Prerequisites - Hardware
 - Adafruit T-Cobbler Plus GPIO Breakout, [Buy from Adafruit](https://www.adafruit.com/products/2028)
 - MCP3008 Analog to Digital Converter, [Buy from Adafruit](https://learn.adafruit.com/raspberry-pi-analog-to-digital-converters/mcp3008)
 - Keyes DHT11 Digital temperature and humidity sensor, [Amazon](https://www.amazon.com/Digital-Temperature-Humidity-Sensor-Arduino/dp/B0100A9SZ2/ref=sr_1_cc_3?s=aps&ie=UTF8&qid=1465662964&sr=1-3-catcorr&keywords=keyes+dht11)
-- Keyes Photo Resistor (light level sensor), [Amazon](https://www.amazon.com/HobbyKing-KY-018-resistor-Module-Arduino/dp/B01EE0WNZQ/ref=sr_1_2?s=toys-and-games&ie=UTF8&qid=1465663093&sr=1-2&keywords=keyes+photo+resistor)
+- Keyes Photo Resistor (analog light level sensor), [Amazon](https://www.amazon.com/HobbyKing-KY-018-resistor-Module-Arduino/dp/B01EE0WNZQ/ref=sr_1_2?s=toys-and-games&ie=UTF8&qid=1465663093&sr=1-2&keywords=keyes+photo+resistor)
 
 <img src="rpi3-wiring.png" width="426" height="290">
 
+<a id="preqs">
 Prerequisites - Software
 -----
 
@@ -47,12 +49,23 @@ Starting the server
 
 To start the release in the console:
 
-    chmod u+x run.sh
-    ./run.sh
+    $ chmod u+x run.sh
+    $ ./run.sh
 
 or
 
     $ ./_rel/webserver/bin/webserver console
+
+Automatic timer to continuously publish sensor values to Adafruit.io
+----
+
+By starting a timer, you can let Erlang read and publish sensor values continuously to Adafruit.io.
+
+    (webserver@127.0.0.1)1> iottimer:start(5000).
+
+In this example, Erlang will read and publish new values every 5 seconds. To stop the timer, call the stop function:
+
+    (webserver@127.0.0.1)2> iottimer:stop().
 
 Testing the sensors from the Erlang Shell
 ----
@@ -66,7 +79,7 @@ After you have startet the server with one of the terminal commands above, you w
     Eshell V7.3  (abort with ^G)
     (webserver@127.0.0.1)1>
 
-Try running "mcp3008:readSPI(0)." to read a value from the light-level sensor:
+Try running "mcp3008:readSPI(0)." to read a value from the light-level sensor connected to channel 0 on the ADC:
 
     (webserver@127.0.0.1)1> mcp3008:readSPI(0).
     {
