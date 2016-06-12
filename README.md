@@ -13,6 +13,8 @@ Prerequisites - Hardware
 - Keyes DHT11 Digital temperature and humidity sensor, [Amazon](https://www.amazon.com/Digital-Temperature-Humidity-Sensor-Arduino/dp/B0100A9SZ2/ref=sr_1_cc_3?s=aps&ie=UTF8&qid=1465662964&sr=1-3-catcorr&keywords=keyes+dht11)
 - Keyes Photo Resistor (light level sensor), [Amazon](https://www.amazon.com/HobbyKing-KY-018-resistor-Module-Arduino/dp/B01EE0WNZQ/ref=sr_1_2?s=toys-and-games&ie=UTF8&qid=1465663093&sr=1-2&keywords=keyes+photo+resistor)
 
+<img src="rpi3-wiring.png" width="426" height="290">
+
 Prerequisites - Software
 -----
 
