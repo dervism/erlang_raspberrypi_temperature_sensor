@@ -5,7 +5,7 @@
 -define(ACCEPT_JSON, "Accept: application/json").
 -define(XFORM, "application/x-www-form-urlencoded").
 -define(JSON, "application/json").
--define(AIOKEY, "INSERT_YOUR_AIOKEY_HERE").
+-define(AIOKEY, "1180618d76be41df9f34d6793302d6f8").
 
 do(Method, URL, Header, ContentType, Body) ->
     HTTPOptions = [],
